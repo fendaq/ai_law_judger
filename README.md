@@ -31,6 +31,11 @@ on the knowledge graph, then once meet all the requirement for a claim, we can s
 2.Main Objects and  Relationship
 ------------------------------------------------------------------------------------------------------------------------
 
+For a [legal case], it has serveral [claim]s, interested parties should provide with [evidence]s to support their appeals,
+
+AI judger will reasoning among [logical tree], which is a form of [knowledge graph] based on proof of evidences, and then reach a [conclusion].
+
+
 <img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/logical_graph.jpg"  width="60%" height="60%" />
 
 
