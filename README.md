@@ -25,7 +25,7 @@ form who file a lawsuit(plaintiff). for each claim, we will ask plaintiff to pro
 
 on the knowledge graph, then once meet all the requirement for a claim, we can support the claim.
 
-<img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/small_tree.jpg"  width="60%" height="60%" />
+<img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/small_tree.jpg"  width="70%" height="70%" />
 
 
 2.Main Objects and  Relationship
