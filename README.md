@@ -50,7 +50,7 @@ Below we will list some key claims for private lending which account for one of 
 For each claim, there will be a logical tree associated with. by default, the root of this logical tree is the claim.
 
 
-####Key claims of private lending:
+#### Key claims of private lending:
 
  1) claim of principal: demand to pay back the principal
  
@@ -63,7 +63,7 @@ For each claim, there will be a logical tree associated with. by default, the ro
  5) claim of guarantee liability: someone or organization take guarantee responsibility for lending.
  
  
- ####Logical operators are used to reasoning among sub nodes or parents nodes in knowledge graph.
+ #### Logical operators are used to reasoning among sub nodes or parents nodes in knowledge graph.
  
  Two main types of Logical Operator:
  
@@ -76,12 +76,21 @@ For each claim, there will be a logical tree associated with. by default, the ro
 
 4.Usage
 ------------------------------------------------------------------------------------------------------------------------
+command to run:
 
-5.Envornment
-------------------------------------------------------------------------------------------------------------------------
-Todo
+  python main.py
+  
+It will print some logs, including the claim, evidences supported this claim, conclusion. 
 
-6.How we implement it
+If the claim is support, the reason(path) to support it; if it is overturn, the reason why it is not support.
+  
+  
+Envornment:
+
+Python 2.7 or  Python 3.x
+
+
+5.How we implement it
 ------------------------------------------------------------------------------------------------------------------------
 We use three steps to reasoning among knowledge graph. basically, it is from bottom-up solution.
 
@@ -89,27 +98,27 @@ For your better understanding, we will describe it first, then in the following 
 
 1) Step one, compute path starting from node in knowledge graph where evidence point to, to a claim which is a sub root
 
-node in knowledge graph.
+   node in knowledge graph.
 
 
 2) Step two, for each path, try to set value of all nodes along the path, util you are not able to. 
 
-Essentially, if a node is proofed by a evidence, you can set it to True(Activate); and if its parent node's(node_p) operator is OR,
+   Essentially, if a node is proofed by a evidence, you can set it to True(Activate); and if its parent node's(node_p) operator is OR,
 
-which means node_p is true if one condition of sub nodes of this parent node is met, you can set node_p's value to True(Activate).
+   which means node_p is true if one condition of sub nodes of this parent node is met, you can set node_p's value to True(Activate).
 
-However if its node_p's operator is AND, you need check to see whether all sub nodes's value is True.
+   However if its node_p's operator is AND, you need check to see whether all sub nodes's value is True.
 
 
 3) Step three, start from the claim, which is a sub root, you can check the value of the sub nodes of this claim,
 
-and get a conclusion that we should support the claim or not.
+   and get a conclusion that we should support the claim or not.
 
 
-7.Case Study
+6.Case Study
 ------------------------------------------------------------------------------------------------------------------------
 TODO
 
-8.Todo list
+7.Todo list
 ------------------------------------------------------------------------------------------------------------------------
 TODO
