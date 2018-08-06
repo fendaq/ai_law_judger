@@ -117,6 +117,8 @@ For your better understanding, we will describe main steps first, then in the fo
 
    and get a conclusion to support the claim or not.
 
+For more detail, you can check function of logic_operation from LogTreeOperationObject.py
+
 
 6.Case Study 
 ------------------------------------------------------------------------------------------------------------------------
@@ -204,6 +206,8 @@ We will give two examples, one a claim is supported, another a claim is overthro
 the claim is [appeal of principal 1], and it has two evidences approval of following nodes:
 
 [expression of borrowing money 9] and [signature of interested parites 10], the question is should a AI judger support this claim or not?
+
+<img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/tree_case_2.jpg"  width="80%" height="80%" />
 
 ##### Logs:
     Input： 
