@@ -93,7 +93,7 @@ Envornment:
     Python 2.7 or  Python 3.x
 
 
-5.How we implement it
+5.Key Logical to Reasoning
 ------------------------------------------------------------------------------------------------------------------------
 We use three steps to reasoning on the knowledge graph. basically, it is a form of bottom-up solution.
 
@@ -181,20 +181,20 @@ the claim is [appeal of principal 1], and in this case, it has two evidences app
       
 ##### Logs:
 
-Input： 
-
-        Claim(or appeal): appeal of principal 1
-        
-        Evidence list: written agreement 4,receipt of cash(bill) 11
-        
-Output： 
-        Conclusion:support(yes)
-        
-Path to support:
-
-        written agreement4-->loan agreement2-->appeal of principal1
-        
-        receipt of cash(bill)11-->cash(bill) delivery8-->delivery of money3-->appeal of principal1
+    Input： 
+    
+            Claim(or appeal): appeal of principal 1
+            
+            Evidence list: written agreement 4,receipt of cash(bill) 11
+            
+    Output： 
+            Conclusion:support(yes)
+            
+    Path to support:
+    
+            written agreement4-->loan agreement2-->appeal of principal1
+            
+            receipt of cash(bill)11-->cash(bill) delivery8-->delivery of money3-->appeal of principal1
         
 
 ### Case Study 2: a claim with evidences that AI judger overthrow
@@ -204,19 +204,19 @@ the claim is [appeal of principal 1], and it has two evidences approval of follo
 [expression of borrowing money 9] and [signature of interested parites 10], the question is should a AI judger support this claim or not?
 
 ##### Logs:
-Input： 
-
-        Claim(or appeal): appeal of principal 1
-        
-        Evidence list: expression of borrowing money 9,signature of interested parites 10
-        
-Output： 
-       
-        Conclusion:overthrow(no)
-
-Path why not support:
-        
-        delivery of money3-->appeal of principal1
+    Input： 
+    
+            Claim(or appeal): appeal of principal 1
+            
+            Evidence list: expression of borrowing money 9,signature of interested parites 10
+            
+    Output： 
+           
+            Conclusion:overthrow(no)
+    
+    Path why not support:
+            
+            delivery of money3-->appeal of principal1
 
 We leave you to do exercise to reasoning for this case 2, and get conclusion.
 
@@ -247,3 +247,9 @@ the prototype of this AI judger. In real practices, things become more complex, 
     
        then we have to adopt the feedback and decide the priority of the feedback.
        
+       
+8.Conlcusion
+
+Up to now, we've covered all necessary components of AI judger with knowledge graph. We not only describe key ideas of how we 
+
+reasoning along the logical tree in judicial engine , but also give two case study. 
