@@ -130,7 +130,7 @@ the claim is [appeal of principal 1], and in this case, it has two evidences app
 <img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/tree_case_1.jpg"  width="80%" height="80%" />
 
 
-Solution:
+##### Solution:
   
   Step 1, that's compute path from evidence to claim. take frist evidence [written agreement 4], it parent node is [loan agreement 2],
       
@@ -148,32 +148,44 @@ Solution:
   
   Step2, try to set value of nodes along the path.
      
-     take the first path: [written agreement 4, loan agreement 2, appeal of principal 1], or [4, 2, 1].
+     1) take the first path: [written agreement 4, loan agreement 2, appeal of principal 1], or [4, 2, 1].
      
-     as there is an evidence point to [written agreement 4], we set this node 4 to be True.  how about the value of [loan agreement 2]?
+         as there is an evidence point to [written agreement 4], we set this node 4 to be True.  what's the value of [loan agreement 2]?
+         
+         [loan agreement 2]'s operator is [or], means it will be True if one of its sub nodes is True. as we can see from knowledge graph that [written agreement 4]
+         
+         is its sub node, and its value is True, so value of [loan agreement 2] will be True.
+         
+         for [appeal of principal 1], as its operator is [and], it need both of its sub nodes are True, but we only know [loan agreement 2] is True, so we will not 
+         
+         able to set its value. 
+         
+         so far, we know :[written agreement 4:True, loan agreement 2:True, appeal of principal 1:False]. we will set value in a field named as [result] in each node. 
+         
+         for any node we can't set to True, its value will be False( as default value).
      
-     [loan agreement 2]'s operator is [or], means if will be True if one sub node is True. as we can see from knowledge graph that [written agreement 4]
-     
-     is its sub node, its value is True, so [loan agreement 2] will be True.
-     
-     for [appeal of principal 1], as its operator is [and], it need both of its sub node is True, but we only know [loan agreement 2] is True, so we will not 
-     
-     able to set its value. 
-     
-     so we know now:[written agreement 4:True, loan agreement 2:True, appeal of principal 1:False]. we will set value in a field named as [result] in each node. 
-     
-     for any node we can't set to True, its value will be False( as default value).
+     2) take the second path [receipt of cash(bill) 11, cash(bill) delivery 8, delivery of money 3, appeal of principal 1], and use same logic, we can get
+       
+        the computation result:[ recepit of cash(bill):True, cash(bill) delivery 8:True, delivery of money 3: True, appeal of principal 1:False]. 
 
-  Step 3, check sub nodes of the claim.
-     
-
-Logs:
+  Step 3, check sub nodes of the claim, and compute the value of claim.
+       
+        the claim is [appeal of principal 1], its operator is [and], it has two sub nodes:[loan agreement 2],[delivery of moeny 3]. In order to support 
+        
+        the claim of [appeal of principal 1], both of [loan agreement 2] and [delivery of money 3] should to be True. From step 2, we already know that 
+        
+        both of these two nodes are True, so we can get final result of claim[ appeal of principal 1] is True. Thus AI judger can reach a conclusion to
+         
+        suppose this claim.
+        
+      
+##### Logs:
 
 Input： 
 
         Claim(or appeal): appeal of principal 1
         
-        Evidence list:written agreement 4,receipt of cash(bill) 11
+        Evidence list: written agreement 4,receipt of cash(bill) 11
         
 Output： 
         Conclusion:support(yes)
@@ -187,6 +199,51 @@ Path to support:
 
 ### Case Study 2: a claim with evidences that AI judger overthrow
 
-7.Todo list
+the claim is [appeal of principal 1], and it has two evidences approval of following nodes:
+
+[expression of borrowing money 9] and [signature of interested parites 10], the question is should a AI judger support this claim or not?
+
+##### Logs:
+Input： 
+
+        Claim(or appeal): appeal of principal 1
+        
+        Evidence list: expression of borrowing money 9,signature of interested parites 10
+        
+Output： 
+       
+        Conclusion:overthrow(no)
+
+Path why not support:
+        
+        delivery of money3-->appeal of principal1
+
+We leave you to do exercise to reasoning for this case 2, and get conclusion.
+
+
+7.What you didn't see
 ------------------------------------------------------------------------------------------------------------------------
-TODO
+So far you can already know how AI judger works with knowledge graph, and the main key ideas of how its reasoning. However, what you see here is only 
+
+the prototype of this AI judger. In real practices, things become more complex, and more business demand are involved. Including, but not limit to:
+
+    1) thousands of nodes in a knowledge graph. 
+    
+       it will become a very big logical tree.
+    
+    2) serveral claims are included in a law case, instead of one claim. 
+    
+       although we will still look after one claim at each time, but you need to associate evidences with specific claim by yourself.
+    
+    3) not only the plaintiff(the person who fill a lawsuit) will start some original claims( as forward direction), but also defendant(the person who was accused) 
+    
+        will start some claim from opposite direction to overthrow original claim.
+       
+       in this case, even claim(s) is hold to be True in the beginning, but it still possible to rejected it by AI judger. additional logic will be need to reach 
+       
+       an accurate and comprehensive conclusion.
+       
+    4)  person judger may interactive with AI judger by providing some feedback, such as declares some of evidences not to be trusted.
+    
+       then we have to adopt the feedback and decide the priority of the feedback.
+       
