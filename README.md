@@ -93,7 +93,7 @@ Envornment:
     Python 2.7 or  Python 3.x
 
 
-5.Key Logical of Reasoning
+5.Reasoning Logic
 ------------------------------------------------------------------------------------------------------------------------
 We use three steps to reasoning on the knowledge graph. basically, it is a form of bottom-up solution.
 
@@ -122,7 +122,7 @@ For your better understanding, we will describe main steps first, then in the fo
 ------------------------------------------------------------------------------------------------------------------------
 We will give two examples, one a claim is supported, another a claim is overthrown.
 
-### Case Study 1: a claim with evidences that AI judger support
+#### Case Study 1: a claim with evidences that AI judger support
 
     the claim is [appeal of principal 1], it has two evidences approval of following nodes:
     
@@ -144,7 +144,7 @@ We will give two examples, one a claim is supported, another a claim is overthro
         
       these numbers are IDs representing nodes in knowledge graph,
       
-<img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/tree_case_1.jpg"  width="70%" height="70%" />
+<img src="https://github.com/brightmart/ai_law_judger/blob/master/resources/tree_case_1.jpg"  width="80%" height="80%" />
 
   
   Step2, try to set value of nodes along the path.
@@ -196,9 +196,10 @@ We will give two examples, one a claim is supported, another a claim is overthro
             written agreement4-->loan agreement2-->appeal of principal1
             
             receipt of cash(bill)11-->cash(bill) delivery8-->delivery of money3-->appeal of principal1
+      
         
 
-### Case Study 2: a claim with evidences that AI judger overthrow
+#### Case Study 2: a claim with evidences that AI judger overthrow
 
 the claim is [appeal of principal 1], and it has two evidences approval of following nodes:
 
@@ -251,6 +252,8 @@ the prototype of this AI judger. In real practices, things become more complex, 
        
 8.Conlcusion
 ------------------------------------------------------------------------------------------------------------------------
-Up to now, we've covered all necessary components of AI judger with knowledge graph. We not only describe key ideas of how we 
+Up to now, we've covered all necessary components of AI judger with knowledge graph. We not only describe key ideas 
 
-reasoning along the logical tree in judicial engine , but also give two case study. 
+of how we reasoning along the logical tree in judicial engine , but also give two case study. we hope you enjoy it.
+
+For any idea or feedback, you can contact with me: brightmart@hotmail.com
